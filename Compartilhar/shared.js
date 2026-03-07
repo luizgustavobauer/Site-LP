@@ -77,6 +77,16 @@ const blogPosts = [
     { title: 'Guia Completo de Google Ads', date: '10 Mar', category: 'Publicidade', slug: 'google-ads' }
 ];
 
+// ========== UTILITIES ==========
+
+// Determine relative path prefix to root directory based on current location.
+// Pages in subfolders need "../" before root-relative links, whereas root pages use "".
+function getRootPrefix() {
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    // if the path has more than one segment (e.g. "Blog/blog.html"), prefix "../"
+    return segments.length > 1 ? '../' : '';
+}
+
 // ========== INITIALIZE ==========
 document.addEventListener('DOMContentLoaded', function() {
     renderNavbar();
@@ -88,12 +98,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function renderNavbar() {
     const navbar = document.getElementById('navbar');
     const currentPage = getCurrentPage();
+    const prefix = getRootPrefix();
     
     navbar.innerHTML = `
         <div class="nav-container">
-            <a href="../Estrutura/index.html" class="logo">
+            <a href="${prefix}index.html" class="logo">
                 <!-- substitua o caminho abaixo pela sua imagem de logo real -->
-                <img src="../img/ORIGINAL SEM FUNDO.png" alt="LP Agência" class="logo-img" />
+                <img src="${prefix}img/ORIGINAL SEM FUNDO.png" alt="LP Agência" class="logo-img" />
             </a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -101,12 +112,12 @@ function renderNavbar() {
             </button>
 
             <div class="nav-menu" id="navMenu">
-                <a href="../Estrutura/index.html" class="nav-link ${currentPage === 'index' ? 'active' : ''}">Home</a>
-                <a href="../Serviços/servicos.html" class="nav-link ${currentPage === 'servicos' ? 'active' : ''}">Serviços</a>
-                <a href="../Cases/cases.html" class="nav-link ${currentPage === 'cases' ? 'active' : ''}">Cases</a>
-                <a href="../Blog/blog.html" class="nav-link ${currentPage === 'blog' ? 'active' : ''}">Blog</a>
-                <a href="../Contato/contato.html" class="nav-link ${currentPage === 'contato' ? 'active' : ''}">Contato</a>
-                <button class="btn-orcamento" onclick="window.location.href='../Contato/contato.html'">Solicitar Orçamento</button>
+                <a href="${prefix}index.html" class="nav-link ${currentPage === 'index' ? 'active' : ''}">Home</a>
+                <a href="${prefix}Serviços/servicos.html" class="nav-link ${currentPage === 'servicos' ? 'active' : ''}">Serviços</a>
+                <a href="${prefix}Cases/cases.html" class="nav-link ${currentPage === 'cases' ? 'active' : ''}">Cases</a>
+                <a href="${prefix}Blog/blog.html" class="nav-link ${currentPage === 'blog' ? 'active' : ''}">Blog</a>
+                <a href="${prefix}Contato/contato.html" class="nav-link ${currentPage === 'contato' ? 'active' : ''}">Contato</a>
+                <button class="btn-orcamento" onclick="window.location.href='${prefix}Contato/contato.html'">Solicitar Orçamento</button>
             </div>
         </div>
     `;
@@ -115,6 +126,7 @@ function renderNavbar() {
 // ========== FOOTER ==========
 function renderFooter() {
     const footer = document.getElementById('footer');
+    const prefix = getRootPrefix();
     
     footer.innerHTML = `
         <div class="container">
@@ -128,20 +140,20 @@ function renderFooter() {
                 <div class="footer-col fade-in">
                     <h4>Sobre</h4>
                     <ul>
-                        <li><a href="../Estrutura/index.html">Quem somos</a></li>
-                        <li><a href="../Serviços/servicos.html">Nossa missão</a></li>
-                        <li><a href="../Blog/blog.html">Blog</a></li>
+                        <li><a href="${prefix}index.html">Quem somos</a></li>
+                        <li><a href="${prefix}Serviços/servicos.html">Nossa missão</a></li>
+                        <li><a href="${prefix}Blog/blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-col fade-in">
                     <h4>Serviços</h4>
                     <ul>
-                        <li><a href="../Serviços/servicos.html">Estratégia Digital</a></li>
-                        <li><a href="../Serviços/servicos.html">Social Media</a></li>
-                        <li><a href="../Serviços/servicos.html">Publicidade Digital</a></li>
-                        <li><a href="../Serviços/servicos.html">Design & Branding</a></li>
-                        <li><a href="../Serviços/servicos.html">SEO & Conteúdo</a></li>
-                        <li><a href="../Serviços/servicos.html">Email Marketing</a></li>
+                        <li><a href="${prefix}Serviços/servicos.html">Estratégia Digital</a></li>
+                        <li><a href="${prefix}Serviços/servicos.html">Social Media</a></li>
+                        <li><a href="${prefix}Serviços/servicos.html">Publicidade Digital</a></li>
+                        <li><a href="${prefix}Serviços/servicos.html">Design & Branding</a></li>
+                        <li><a href="${prefix}Serviços/servicos.html">SEO & Conteúdo</a></li>
+                        <li><a href="${prefix}Serviços/servicos.html">Email Marketing</a></li>
                     </ul>
                 </div>
                 <div class="footer-col fade-in">

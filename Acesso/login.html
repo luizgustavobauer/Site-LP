@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LP Agência de Marketing</title>
+    <link rel="stylesheet" href="../Compartilhar/shared.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Animated Background -->
+        <div class="login-background">
+            <div class="bg-shape bg-shape-1"></div>
+            <div class="bg-shape bg-shape-2"></div>
+            <div class="bg-shape bg-shape-3"></div>
+            <div class="grid-overlay"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+
+        <!-- Login Box -->
+        <div class="login-box">
+            <!-- Logo -->
+            <div class="login-logo">
+                <div class="logo-icon"><img src="../img/SEM FUNDO BRANCA.png" alt="LP Agência"></div>
+                <h1>LP <span>Agência</span></h1>
+                <p>Área Restrita</p>
+            </div>
+
+            <!-- Login Form -->
+            <form class="login-form" id="loginForm">
+                <!-- Success Message -->
+                <div class="success-box" id="successBox">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Login realizado com sucesso! Redirecionando...</span>
+                </div>
+
+                <!-- Username/CNPJ Input -->
+                <div class="form-group">
+                    <label for="username">CNPJ</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-building input-icon"></i>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            placeholder="00.000.000/0000-00" 
+                            required
+                            maxlength="18"
+                            autocomplete="off"
+                        >
+                    </div>
+                    <span class="error-message" id="usernameError"></span>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Digite sua senha" 
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <!-- Remember Me -->
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Lembrar-me</label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span>Entrar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <!-- Error Message Box -->
+                <div class="error-box" id="errorBox"></div>
+            </form>
+
+            <!-- Footer -->
+            <div class="login-footer">
+                <p>© 2026 LP Agência de Marketing</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../Compartilhar/shared.js"></script>
+    <script src="login.js"></script>
+    
+</body>
+</html>
+

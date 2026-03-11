@@ -117,6 +117,7 @@ function renderNavbar() {
                 <a href="${prefix}Cases/cases.html" class="nav-link ${currentPage === 'cases' ? 'active' : ''}">Cases</a>
                 <a href="${prefix}Blog/blog.html" class="nav-link ${currentPage === 'blog' ? 'active' : ''}">Blog</a>
                 <a href="${prefix}Contato/contato.html" class="nav-link ${currentPage === 'contato' ? 'active' : ''}">Contato</a>
+                <a href="${prefix}Acesso/login.html" class="nav-link">🔒 Acesso restrito</a>
                 <button class="btn-orcamento" onclick="window.location.href='${prefix}Contato/contato.html'">Solicitar Orçamento</button>
             </div>
         </div>
@@ -166,7 +167,7 @@ function renderFooter() {
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 LP AGÊNCIA DE MARKETING DIGITAL. Todos os direitos reservados. 🚀</p>
+                <p>© 2026 LP AGÊNCIA DE MARKETING DIGITAL. Todos os direitos reservados. </p>
             </div>
         </div>
     `;
@@ -200,6 +201,7 @@ function getCurrentPage() {
     if (path.includes('cases')) return 'cases';
     if (path.includes('blog')) return 'blog';
     if (path.includes('contato')) return 'contato';
+    if (path.includes('acesso')) return 'acesso';
     return 'index';
 }
 
